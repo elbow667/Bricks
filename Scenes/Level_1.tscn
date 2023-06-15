@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvvok1wynj2vj"]
+
+[ext_resource type="Script" path="res://Scenes/Level_1.gd" id="1_1bg1l"]
+[ext_resource type="Script" path="res://Scenes/Paddle.gd" id="1_af8g7"]
+[ext_resource type="Texture2D" uid="uid://d0qxp5k117moi" path="res://Art/paddleBlu.png" id="1_kect5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avk0n"]
+radius = 12.0
+height = 100.0
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_1bg1l")
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+position = Vector2(608, 864)
+script = ExtResource("1_af8g7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_kect5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+rotation = 1.5708
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_avk0n")
+
+[node name="Anchor" type="Marker2D" parent="Paddle"]
+position = Vector2(0, 32)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 0, 1600, 0, 1600, 896, 1568, 896, 1568, 16, 32, 16, 32, 896, 0, 896)

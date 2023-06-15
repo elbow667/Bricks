@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://denwn4nhtc3pc"]
+
+[ext_resource type="Texture2D" uid="uid://ck7f8w2a32mn6" path="res://Art/element_red_rectangle_glossy.png" id="1_0hg85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8foey"]
+size = Vector2(23.1884, 26.6666)
+
+[node name="Brick" type="StaticBody2D" groups=["Bricks"]]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0hg85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.76, 1.2)
+shape = SubResource("RectangleShape2D_8foey")
